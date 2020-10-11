@@ -268,6 +268,7 @@ async def refresh(ctx):
 async def make_leaderboard(ctx):
     # Este comando cria uma leaderboard com os utilizadores que mais falaram no servidor.
     visible_user_count = 10
+    count = 1;
     leaderboard = {}
 
     for channel in guild.text_channels:
@@ -280,7 +281,7 @@ async def make_leaderboard(ctx):
 
     leaderboard_msg = "```"
     for user_id in sorted(leaderboard, key=leaderboard.get, reverse=True)[:visible_user_count]:
-        leaderboard_msg += '{} - {}\n'.format(guild.get_member(user_id), leaderboard[user_id])
+        leaderboard_msg += 'count. - {} - {}\n'.format(guild.get_member(user_id), leaderboard[user_id])
     leaderboard_msg += "```"
     await ctx.message.channel.send('{}'.format(leaderboard_msg))
 
